@@ -3,7 +3,7 @@ import { ArrowDown, Play, Trophy } from "lucide-react";
 
 export const HeroSection = () => {
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -14,17 +14,21 @@ export const HeroSection = () => {
           <div
             key={i}
             className={`absolute w-2 h-2 rounded-full animate-float opacity-20 ${
-              i % 5 === 0 ? 'bg-zomato' :
-              i % 5 === 1 ? 'bg-amul' :
-              i % 5 === 2 ? 'bg-mamaearth' :
-              i % 5 === 3 ? 'bg-sabyasachi' :
-              'bg-lenskart'
+              i % 5 === 0
+                ? "bg-zomato"
+                : i % 5 === 1
+                ? "bg-amul"
+                : i % 5 === 2
+                ? "bg-mamaearth"
+                : i % 5 === 3
+                ? "bg-sabyasachi"
+                : "bg-lenskart"
             }`}
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${3 + Math.random() * 2}s`
+              animationDuration: `${3 + Math.random() * 2}s`,
             }}
           />
         ))}
@@ -37,59 +41,36 @@ export const HeroSection = () => {
             <span className="block text-transparent bg-gradient-primary bg-clip-text animate-glow">
               Ultimate Indian
             </span>
-            <span className="block text-transparent bg-gradient-primary bg-clip-text animate-glow" style={{ animationDelay: '0.5s' }}>
+            <span
+              className="block text-transparent bg-gradient-primary bg-clip-text animate-glow"
+              style={{ animationDelay: "0.5s" }}
+            >
               Brands Showcase
             </span>
           </h1>
-          
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Discover the stories, characters, and magic behind India's most beloved brands through interactive experiences
-          </p>
-        </div>
 
-        {/* Feature Highlights */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-          <div className="bg-card/50 backdrop-blur-glass border border-border/50 rounded-lg p-6 hover:scale-105 transition-smooth">
-            <div className="w-12 h-12 bg-gradient-zomato rounded-full flex items-center justify-center mx-auto mb-4">
-              <Play className="w-6 h-6 text-white" />
-            </div>
-            <h3 className="text-lg font-semibold mb-2">Interactive Characters</h3>
-            <p className="text-muted-foreground text-sm">Meet animated brand mascots and explore their stories</p>
-          </div>
-          
-          <div className="bg-card/50 backdrop-blur-glass border border-border/50 rounded-lg p-6 hover:scale-105 transition-smooth">
-            <div className="w-12 h-12 bg-gradient-mamaearth rounded-full flex items-center justify-center mx-auto mb-4">
-              <Trophy className="w-6 h-6 text-white" />
-            </div>
-            <h3 className="text-lg font-semibold mb-2">Brand Knowledge Quiz</h3>
-            <p className="text-muted-foreground text-sm">Test your knowledge with our comprehensive quiz system</p>
-          </div>
-          
-          <div className="bg-card/50 backdrop-blur-glass border border-border/50 rounded-lg p-6 hover:scale-105 transition-smooth">
-            <div className="w-12 h-12 bg-gradient-lenskart rounded-full flex items-center justify-center mx-auto mb-4">
-              <ArrowDown className="w-6 h-6 text-white animate-bounce" />
-            </div>
-            <h3 className="text-lg font-semibold mb-2">Immersive Experience</h3>
-            <p className="text-muted-foreground text-sm">Scroll through smooth transitions and animations</p>
-          </div>
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Discover the stories, characters, and magic behind India's most
+            beloved brands through interactive experiences
+          </p>
         </div>
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button 
-            size="lg" 
+          <Button
+            size="lg"
             className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg px-8 py-6 rounded-full"
-            onClick={() => scrollToSection('brands')}
+            onClick={() => scrollToSection("brands")}
           >
             <Play className="w-5 h-5 mr-2" />
             Start Journey
           </Button>
-          
-          <Button 
-            variant="outline" 
+
+          <Button
+            variant="outline"
             size="lg"
             className="border-primary/50 hover:bg-primary/10 text-lg px-8 py-6 rounded-full backdrop-blur-glass"
-            onClick={() => scrollToSection('quiz')}
+            onClick={() => scrollToSection("quiz")}
           >
             <Trophy className="w-5 h-5 mr-2" />
             Jump to Quiz

@@ -8,7 +8,7 @@ export const ProgressBar = ({ currentSection }: ProgressBarProps) => {
 
   return (
     <div className="fixed top-0 left-0 w-full h-1 bg-secondary/30 z-50">
-      <div 
+      <div
         className="h-full bg-gradient-primary transition-all duration-500 ease-out"
         style={{ width: `${progress}%` }}
       />

@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { Trophy, Clock, RotateCcw, PlayCircle } from "lucide-react";
+import { Trophy, RotateCcw, PlayCircle } from "lucide-react";
 import { quizData, QuizQuestion } from "@/data/quizData";
 import { useToast } from "@/hooks/use-toast";
 
@@ -11,27 +11,12 @@ export const QuizSection = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [score, setScore] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(30);
   const [quizCompleted, setQuizCompleted] = useState(false);
   const [answers, setAnswers] = useState<(number | null)[]>([]);
-  const [isActive, setIsActive] = useState(false);
   const { toast } = useToast();
 
   const currentQuestions = quizData.slice(0, 15); // Fixed 15 questions
 
-  useEffect(() => {
-    let interval: NodeJS.Timeout;
-    
-    if (isActive && timeLeft > 0 && !quizCompleted) {
-      interval = setInterval(() => {
-        setTimeLeft(timeLeft - 1);
-      }, 1000);
-    } else if (timeLeft === 0 && !quizCompleted) {
-      handleNextQuestion();
-    }
-
-    return () => clearInterval(interval);
-  }, [isActive, timeLeft, quizCompleted]);
 
   const startQuiz = () => {
     setQuizStarted(true);
@@ -40,8 +25,6 @@ export const QuizSection = () => {
     setSelectedAnswer(null);
     setQuizCompleted(false);
     setAnswers(new Array(15).fill(null));
-    setTimeLeft(30);
-    setIsActive(true);
 
     toast({
       title: "Quiz Started! 🚀",
@@ -73,21 +56,17 @@ export const QuizSection = () => {
       });
     }
 
-    setTimeout(() => {
-      handleNextQuestion();
-    }, 1500);
+    // Move to next question immediately after answer selection
+    handleNextQuestion();
   };
 
   const handleNextQuestion = () => {
     if (currentQuestion + 1 < currentQuestions.length) {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedAnswer(null);
-      setTimeLeft(30);
     } else {
       setQuizCompleted(true);
     }
-    setIsActive(false);
-    setTimeout(() => setIsActive(true), 100);
   };
 
   const resetQuiz = () => {
@@ -97,8 +76,6 @@ export const QuizSection = () => {
     setSelectedAnswer(null);
     setQuizCompleted(false);
     setAnswers([]);
-    setTimeLeft(30);
-    setIsActive(false);
   };
 
   const getScorePercentage = () => {
@@ -131,7 +108,7 @@ export const QuizSection = () => {
                     Brand Knowledge Quiz
                   </h2>
                   <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                    Test your knowledge about India's top brands! 15 questions with 30 seconds each.
+                    Test your knowledge about India's top brands! 15 questions to challenge your brand expertise.
                   </p>
                 </div>
 
@@ -191,12 +168,6 @@ export const QuizSection = () => {
               <div className="text-2xl font-bold text-primary">
                 {currentQuestion + 1} / {currentQuestions.length}
               </div>
-              <div className="flex items-center space-x-2 text-lg">
-                <Clock className="w-5 h-5" />
-                <span className={`font-bold ${timeLeft <= 5 ? 'text-red-500 animate-pulse' : 'text-foreground'}`}>
-                  {timeLeft}s
-                </span>
-              </div>
             </div>
             <div className="text-right">
               <div className="text-sm text-muted-foreground">Score</div>
@@ -227,7 +198,7 @@ export const QuizSection = () => {
                     buttonClass += " bg-muted/50 border-muted text-muted-foreground";
                   }
                 } else {
-                  buttonClass += " border-border hover:border-primary/50 hover:bg-primary/5";
+                  buttonClass += " border-border hover:border-primary/50 hover:bg-white";
                 }
 
                 return (
