@@ -33,12 +33,12 @@ export const BrandCard = ({ brand, onClose }: BrandCardProps) => {
   };
 
   return (
-    <div 
+    <div
       className="fixed inset-0 bg-background/80 backdrop-blur-glass flex items-center justify-center p-4 z-50 animate-fade-in-up"
       onClick={onClose}
     >
       <Card
-        className={`w-full max-w-7xl bg-card/90 backdrop-blur-glass border-2 border-${brand.color}/30 shadow-premium animate-scale-bounce relative overflow-hidden`}
+        className={`w-full max-w-7xl bg-card/90 backdrop-blur-glass border-2 border-${brand.color}/30 shadow-premium animate-scale-bounce relative overflow-hidden flex`} // Added `flex`
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
@@ -46,74 +46,41 @@ export const BrandCard = ({ brand, onClose }: BrandCardProps) => {
           variant="ghost"
           size="sm"
           onClick={onClose}
-          className="absolute top-4 right-4 z-50 hover:bg-destructive/20 bg-destructive/10 hover:bg-destructive/30 transition-all duration-200 min-w-[40px] min-h-[40px] flex items-center justify-center"
+          className="absolute top-4 right-4 z-50 hover:bg-destructive/20 bg-destructive/10 transition-all duration-200 min-w-[40px] min-h-[40px] flex items-center justify-center"
+          aria-label="Close"
         >
           <X className="w-5 h-5" />
         </Button>
 
-        {/* Header Section */}
-        <div
-          className={`bg-gradient-${brand.id} p-4 text-white relative overflow-hidden`}
-        >
-          {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-10">
-            {Array.from({ length: 20 }).map((_, i) => (
-              <div
-                key={i}
-                className="absolute w-2 h-2 bg-white rounded-full animate-float"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  animationDelay: `${Math.random() * 3}s`,
-                }}
-              />
-            ))}
-          </div>
+        {/* Left Section (Content) */}
+        <div className="w-1/2 p-6 flex flex-col justify-between">
+          <div>
+            {/* Header Content */}
+            <h2 className={`text-4xl font-bold mb-1 text-${brand.color}`}>{brand.name}</h2>
+            <p className="text-xl text-muted-foreground">{brand.tagline}</p>
+            <hr className="my-4" />
 
-          <div className="relative z-10 flex items-center space-x-3">
-            <div className="w-16 h-16 rounded-full overflow-hidden border-4 border-white/20 shadow-premium">
-              <img
-                src={brand.character}
-                alt={`${brand.name} character`}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold mb-0">{brand.name}</h2>
-              <p className="text-base opacity-90">{brand.tagline}</p>
+            {/* Brand Facts */}
+            <div className="mb-4">
+              <h3 className="text-lg font-bold mb-2 flex items-center">
+                <Trophy className="w-4 h-4 mr-2 text-primary" />
+                Brand Journey
+              </h3>
+              <div className="bg-secondary/30 rounded-lg p-3">
+                <ul className="space-y-1">
+                  {brand.facts.map((fact, index) => (
+                    <li key={index} className="flex items-start space-x-2">
+                      <span className={`text-${brand.color} text-sm font-bold mt-0.5`}>•</span>
+                      <span className="text-xs leading-relaxed">{fact}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-
-        {/* Content Section */}
-        <div className="p-4">
-          {/* Statistics */}
-         
-
-          {/* Brand Facts */}
-          <div className="mb-4">
-            <h3 className="text-lg font-bold mb-2 flex items-center">
-              <Trophy className="w-4 h-4 mr-2 text-primary" />
-              Brand Journey
-            </h3>
-            <div className="bg-secondary/30 rounded-lg p-3">
-              <ul className="space-y-1">
-                {brand.facts.map((fact, index) => (
-                  <li key={index} className="flex items-start space-x-2">
-                    <span
-                      className={`text-${brand.color} text-sm font-bold mt-0.5`}
-                    >
-                      •
-                    </span>
-                    <span className="text-xs leading-relaxed">{fact}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
+          
           {/* Mini Game Section */}
-          <div className="text-center">
+          <div className="text-center mt-auto">
             <Button
               onClick={launchMiniGame}
               className={`bg-gradient-${brand.id} hover:shadow-brand-${brand.id} transition-all duration-300 px-4 py-2 text-sm rounded-full`}
@@ -124,6 +91,22 @@ export const BrandCard = ({ brand, onClose }: BrandCardProps) => {
             <p className="text-muted-foreground mt-1 text-xs">
               {brand.miniGame.description}
             </p>
+          </div>
+        </div>
+
+        {/* Right Section (Image) */}
+        <div 
+          className="w-1/2 relative overflow-hidden flex items-center justify-center"
+          style={{ backgroundImage: `url(${brand.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+        >
+          <div className="absolute inset-0 bg-background/30 backdrop-blur-sm"></div>
+          {/* Main Character Image - Increased size here */}
+          <div className="relative z-10 w-80 h-80 rounded-full overflow-hidden border-4 border-white/20 shadow-premium"> {/* Increased w and h to 80 */}
+            <img
+              src={brand.character}
+              alt={`${brand.name} character`}
+              className="w-full h-full object-cover" // object-cover ensures it fills the circle
+            />
           </div>
         </div>
       </Card>
