@@ -96,34 +96,21 @@ export const BrandCard = ({ brand, onClose }: BrandCardProps) => {
             ))}
           </div>
 
-          {/* Brand Facts Carousel */}
+          {/* Brand Facts */}
           <div className="mb-8">
             <h3 className="text-2xl font-bold mb-4 flex items-center">
               <Trophy className="w-6 h-6 mr-2 text-primary" />
               Brand Journey
             </h3>
-            <div className="bg-secondary/30 rounded-lg p-6 min-h-[120px] flex items-center">
-              <p
-                key={currentFact}
-                className="text-lg leading-relaxed animate-fade-in-up"
-              >
-                {brand.facts[currentFact]}
-              </p>
-            </div>
-            
-            {/* Fact Navigation Dots */}
-            <div className="flex justify-center space-x-2 mt-4">
-              {brand.facts.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentFact(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    currentFact === index
-                      ? `bg-${brand.color} scale-125`
-                      : 'bg-muted hover:bg-muted-foreground'
-                  }`}
-                />
-              ))}
+            <div className="bg-secondary/30 rounded-lg p-6">
+              <ul className="space-y-3">
+                {brand.facts.map((fact, index) => (
+                  <li key={index} className="flex items-start space-x-3">
+                    <span className={`text-${brand.color} text-lg font-bold mt-1`}>•</span>
+                    <span className="text-base leading-relaxed">{fact}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
