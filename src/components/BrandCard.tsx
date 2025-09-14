@@ -94,10 +94,9 @@ export const BrandCard = ({ brand, onClose }: BrandCardProps) => {
           </div>
         </div>
 
-        {/* Right Section (Image) */}
+        {/* Right Section (Character) */}
         <div 
-          className="w-1/2 relative overflow-hidden flex items-center justify-center"
-          style={{ backgroundImage: `url(${brand.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+          className="w-1/2 relative overflow-hidden flex items-center justify-center bg-gradient-to-br from-background/50 to-card/30"
         >
           <div className="absolute inset-0 bg-background/30 backdrop-blur-sm"></div>
           {/* Main Character Image - Increased size here */}

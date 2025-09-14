@@ -87,6 +87,8 @@ export default {
       backgroundImage: {
         'gradient-hero': 'var(--gradient-hero)',
         'gradient-primary': 'var(--gradient-primary)',
+        'gradient-surface': 'var(--gradient-surface)',
+        'gradient-border': 'var(--gradient-border)',
         'gradient-zomato': 'var(--gradient-zomato)',
         'gradient-amul': 'var(--gradient-amul)',
         'gradient-mamaearth': 'var(--gradient-mamaearth)',
