@@ -2,82 +2,111 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ultimate Gradient Classy Theme - Premium Design System */
+/* Indian Brands Showcase Design System - Premium Dark Theme */
 
 @layer base {
   :root {
-    /* Base Theme - Gradient Classy */
-    --background: 220 20% 8%;
+    /* Base Theme - Premium Dark */
+    --background: 240 10% 6%;
     --foreground: 0 0% 98%;
-    
-    /* Brand Colors - Enhanced Gradients */
-    --zomato: 354 75% 58%;
-    --zomato-light: 354 85% 70%;
-    --zomato-dark: 354 60% 45%;
-    
-    --amul: 210 100% 45%;
-    --amul-light: 210 100% 65%;
-    --amul-dark: 210 100% 30%;
-    
-    --mamaearth: 142 80% 40%;
-    --mamaearth-light: 142 85% 55%;
-    --mamaearth-dark: 142 75% 30%;
-    
-    --sabyasachi: 0 75% 40%;
-    --sabyasachi-light: 0 80% 55%;
-    --sabyasachi-dark: 0 70% 25%;
-    
-    --lenskart: 231 55% 52%;
-    --lenskart-light: 231 60% 68%;
-    --lenskart-dark: 231 50% 35%;
-    
-    /* Premium UI Colors with Gradient Base */
-    --card: 220 15% 12%;
-    --card-foreground: 0 0% 96%;
-    --popover: 220 15% 12%;
-    --popover-foreground: 0 0% 96%;
-    --primary: 45 100% 70%;
-    --primary-foreground: 220 20% 8%;
-    --secondary: 220 10% 18%;
-    --secondary-foreground: 0 0% 92%;
-    --muted: 220 8% 15%;
-    --muted-foreground: 220 8% 68%;
-    --accent: 270 75% 65%;
-    --accent-foreground: 220 20% 8%;
-    --destructive: 0 84% 65%;
+
+    /* Brand Colors - Zomato */
+    --zomato: 354 70% 54%;
+    --zomato-light: 354 85% 66%;
+    --zomato-dark: 354 55% 42%;
+
+    /* Brand Colors - Amul */
+    --amul: 210 100% 40%;
+    --amul-light: 210 100% 60%;
+    --amul-dark: 210 100% 25%;
+
+    /* Brand Colors - Mamaearth */
+    --mamaearth: 142 76% 36%;
+    --mamaearth-light: 142 75% 50%;
+    --mamaearth-dark: 142 76% 25%;
+
+    /* Brand Colors - Sabyasachi */
+    --sabyasachi: 0 70% 35%;
+    --sabyasachi-light: 0 70% 50%;
+    --sabyasachi-dark: 0 70% 20%;
+
+    /* Brand Colors - Lenskart */
+    --lenskart: 231 48% 48%;
+    --lenskart-light: 231 48% 65%;
+    --lenskart-dark: 231 48% 30%;
+
+    /* UI Colors */
+    --card: 240 10% 8%;
+    --card-foreground: 0 0% 95%;
+    --popover: 240 10% 8%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 39 100% 67%;
+    --primary-foreground: 240 10% 6%;
+    --secondary: 240 5% 15%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 240 5% 12%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 39 100% 67%;
+    --accent-foreground: 240 10% 6%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 220 8% 20%;
-    --input: 220 8% 18%;
-    --ring: 45 100% 70%;
-    --radius: 1rem;
-    
-    /* Advanced Glass Morphism */
-    --glass-bg: 220 15% 12% / 0.85;
-    --glass-border: 0 0% 100% / 0.15;
-    --backdrop-blur: 20px;
-    
-    /* Premium Gradient System */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(220 20% 8%) 0%, hsl(220 25% 15%) 30%, hsl(270 15% 12%) 70%, hsl(220 20% 8%) 100%);
-    --gradient-surface: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(220 12% 15%) 100%);
-    --gradient-border: linear-gradient(135deg, hsl(var(--border)) 0%, hsl(0 0% 100% / 0.1) 100%);
-    
-    /* Enhanced Brand Gradients */
-    --gradient-zomato: linear-gradient(135deg, hsl(var(--zomato-dark)) 0%, hsl(var(--zomato)) 50%, hsl(var(--zomato-light)) 100%);
-    --gradient-amul: linear-gradient(135deg, hsl(var(--amul-dark)) 0%, hsl(var(--amul)) 50%, hsl(var(--amul-light)) 100%);
-    --gradient-mamaearth: linear-gradient(135deg, hsl(var(--mamaearth-dark)) 0%, hsl(var(--mamaearth)) 50%, hsl(var(--mamaearth-light)) 100%);
-    --gradient-sabyasachi: linear-gradient(135deg, hsl(var(--sabyasachi-dark)) 0%, hsl(var(--sabyasachi)) 50%, hsl(var(--sabyasachi-light)) 100%);
-    --gradient-lenskart: linear-gradient(135deg, hsl(var(--lenskart-dark)) 0%, hsl(var(--lenskart)) 50%, hsl(var(--lenskart-light)) 100%);
-    
-    /* Luxury Shadow System */
-    --shadow-premium: 0 32px 64px -12px hsl(220 20% 3% / 0.6), 0 0 40px hsl(var(--primary) / 0.1);
-    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.4), 0 0 80px hsl(var(--accent) / 0.2);
-    --shadow-brand-zomato: 0 16px 40px -8px hsl(var(--zomato) / 0.5), 0 0 30px hsl(var(--zomato) / 0.2);
-    --shadow-brand-amul: 0 16px 40px -8px hsl(var(--amul) / 0.5), 0 0 30px hsl(var(--amul) / 0.2);
-    --shadow-brand-mamaearth: 0 16px 40px -8px hsl(var(--mamaearth) / 0.5), 0 0 30px hsl(var(--mamaearth) / 0.2);
-    --shadow-brand-sabyasachi: 0 16px 40px -8px hsl(var(--sabyasachi) / 0.5), 0 0 30px hsl(var(--sabyasachi) / 0.2);
-    --shadow-brand-lenskart: 0 16px 40px -8px hsl(var(--lenskart) / 0.5), 0 0 30px hsl(var(--lenskart) / 0.2);
-    
+    --border: 240 5% 15%;
+    --input: 240 5% 15%;
+    --ring: 39 100% 67%;
+    --radius: 0.75rem;
+
+    /* Glass Morphism */
+    --glass-bg: 240 10% 8% / 0.8;
+    --glass-border: 0 0% 100% / 0.1;
+    --backdrop-blur: 16px;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(var(--primary)),
+      hsl(39 100% 50%)
+    );
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(270 40% 8%) 0%,
+      hsl(280 50% 20%) 50%,
+      hsl(270 40% 8%) 100%
+    );
+    --gradient-zomato: linear-gradient(
+      135deg,
+      hsl(var(--zomato)),
+      hsl(var(--zomato-light))
+    );
+    --gradient-amul: linear-gradient(
+      135deg,
+      hsl(var(--amul)),
+      hsl(var(--amul-light))
+    );
+    --gradient-mamaearth: linear-gradient(
+      135deg,
+      hsl(var(--mamaearth)),
+      hsl(var(--mamaearth-light))
+    );
+    --gradient-sabyasachi: linear-gradient(
+      135deg,
+      hsl(var(--sabyasachi)),
+      hsl(var(--sabyasachi-light))
+    );
+    --gradient-lenskart: linear-gradient(
+      135deg,
+      hsl(var(--lenskart)),
+      hsl(var(--lenskart-light))
+    );
+
+    /* Shadows */
+    --shadow-premium: 0 25px 50px -12px hsl(240 10% 3% / 0.5);
+    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.3);
+    --shadow-brand-zomato: 0 10px 30px -5px hsl(var(--zomato) / 0.4);
+    --shadow-brand-amul: 0 10px 30px -5px hsl(var(--amul) / 0.4);
+    --shadow-brand-mamaearth: 0 10px 30px -5px hsl(var(--mamaearth) / 0.4);
+    --shadow-brand-sabyasachi: 0 10px 30px -5px hsl(var(--sabyasachi) / 0.4);
+    --shadow-brand-lenskart: 0 10px 30px -5px hsl(var(--lenskart) / 0.4);
+
     /* Animations */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);

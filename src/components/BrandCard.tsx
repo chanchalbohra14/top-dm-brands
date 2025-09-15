@@ -56,7 +56,9 @@ export const BrandCard = ({ brand, onClose }: BrandCardProps) => {
         <div className="w-1/2 p-6 flex flex-col justify-between">
           <div>
             {/* Header Content */}
-            <h2 className={`text-4xl font-bold mb-1 text-${brand.color}`}>{brand.name}</h2>
+            <h2 className={`text-4xl font-bold mb-1 text-${brand.color}`}>
+              {brand.name}
+            </h2>
             <p className="text-xl text-muted-foreground">{brand.tagline}</p>
             <hr className="my-4" />
 
@@ -70,7 +72,11 @@ export const BrandCard = ({ brand, onClose }: BrandCardProps) => {
                 <ul className="space-y-1">
                   {brand.facts.map((fact, index) => (
                     <li key={index} className="flex items-start space-x-2">
-                      <span className={`text-${brand.color} text-sm font-bold mt-0.5`}>•</span>
+                      <span
+                        className={`text-${brand.color} text-sm font-bold mt-0.5`}
+                      >
+                        •
+                      </span>
                       <span className="text-xs leading-relaxed">{fact}</span>
                     </li>
                   ))}
@@ -78,7 +84,7 @@ export const BrandCard = ({ brand, onClose }: BrandCardProps) => {
               </div>
             </div>
           </div>
-          
+
           {/* Mini Game Section */}
           <div className="text-center mt-auto">
             <Button
@@ -95,12 +101,12 @@ export const BrandCard = ({ brand, onClose }: BrandCardProps) => {
         </div>
 
         {/* Right Section (Character) */}
-        <div 
-          className="w-1/2 relative overflow-hidden flex items-center justify-center bg-gradient-to-br from-background/50 to-card/30"
-        >
+        <div className="w-1/2 relative overflow-hidden flex items-center justify-center bg-gradient-to-br from-background/50 to-card/30">
           <div className="absolute inset-0 bg-background/30 backdrop-blur-sm"></div>
           {/* Main Character Image - Increased size here */}
-          <div className="relative z-10 w-80 h-80 rounded-full overflow-hidden border-4 border-white/20 shadow-premium"> {/* Increased w and h to 80 */}
+          <div className="relative z-10 w-80 h-80 rounded-full overflow-hidden border-4 border-white/20 shadow-premium">
+            {" "}
+            {/* Increased w and h to 80 */}
             <img
               src={brand.character}
               alt={`${brand.name} character`}
